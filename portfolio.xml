@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:ccs='false' b:js='false' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+	<head>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+	<b:include data='blog' name='all-head-content'/>
+  
+  	<b:if cond='data:view.isError'><title>Error 404</title></b:if>  
+	<b:if cond='data:view.isHomepage'><title><data:blog.pageTitle/></title></b:if>
+	<b:if cond='!data:view.isMultipleItems'><title><data:blog.pageName/></title></b:if>
+	<b:if cond='data:view.isMultipleItems'>
+		<b:if cond='data:view.search.query'><title><data:view.search.query/></title></b:if>
+		<b:if cond='data:view.search.label'><title><data:blog.pageName/> - <data:blog.title/></title></b:if>
+		<b:if cond='data:view.isArchive'><title><data:blog.pageName/></title></b:if>
+		<b:if cond='data:view.search and !data:view.search.label and !data:view.search.query and !data:view.isArchive'><title><data:blog.title/></title></b:if>
+	</b:if>
+  
+  <!-- Meta Title -->
+  <b:if cond='data:view.isMultipleItems'>
+    <meta expr:content='data:blog.pageTitle' property='og:image:alt'/>
+    <meta expr:content='data:blog.pageTitle' name='twitter:title'/>
+    <meta expr:content='data:blog.pageTitle' name='twitter:image:alt'/>
+    <b:else/>
+    <meta expr:content='data:blog.pageName' property='og:title'/>
+    <meta expr:content='data:blog.pageName' property='og:image:alt'/>
+    <meta expr:content='data:blog.pageName' name='twitter:title'/>
+    <meta expr:content='data:blog.pageName' name='twitter:image:alt'/>
+  </b:if>
+  <meta expr:content='data:blog.title' property='og:site_name'/>
+  
+  <!-- Meta Image -->
+  <b:if cond='data:blog.postImageUrl'>
+    <meta expr:content='data:blog.postImageUrl' property='og:image'/>
+    <b:else/>
+    <b:if cond='data:blog.postImageThumbnailUrl'>
+      <meta expr:content='data:blog.postThumbnailUrl' property='og:image'/>
+    <b:else/>
+      <meta content='https://4.bp.blogspot.com/-_Ip-HYERms8/YG5vSuNS_uI/AAAAAAAAFu8/zZQoOZDfXyA8GMGMxvTNLfXT6RDaddKWgCLcBGAsYHQ/s0/Pos%2BTanpa%2BGambar.png' property='og:image'/>
+    </b:if>
+  </b:if>
+  <b:if cond='data:view.isMultipleItems'>
+    <meta content='https://4.bp.blogspot.com/-_Ip-HYERms8/YG5vSuNS_uI/AAAAAAAAFu8/zZQoOZDfXyA8GMGMxvTNLfXT6RDaddKWgCLcBGAsYHQ/s0/Pos%2BTanpa%2BGambar.png' name='twitter:image'/>
+    <b:else/>
+    <meta expr:content='data:blog.postImageUrl' name='twitter:image'/>
+  </b:if>
+  <b:if cond='data:view.isPost'>
+    <link expr:href='resizeImage(data:blog.postImageUrl, 700, &quot;18:9&quot;)' rel='image_src'/>
+  </b:if>
+    
+  <!-- Meta PWA -->
+    <link href='https://4.bp.blogspot.com/-5uQgJY5J6AM/X_3rYsTmKaI/AAAAAAAAFgg/Abmh9x767WwsitQY9AcME2iatS4vgOOOACLcBGAsYHQ/s152/pwa%2B006.png' rel='icon'/>
+	<link href='https://cdn.jsdelivr.net/gh/jampirojam/PORTFOLIO@main/manifest.json' rel='manifest'/>
+    <!-- theme-color defines the top bar color (blue in my case)-->
+    <meta content='#212121' name='theme-color'/>
+
+    <!-- Add to home screen for Safari on iOS-->
+    <meta content='yes' name='apple-mobile-web-app-capable'/>
+    <meta content='default' name='apple-mobile-web-app-status-bar-style'/>
+    <meta content='BROJAMZ COM' name='apple-mobile-web-app-title'/>
+    <link href='https://4.bp.blogspot.com/-P1p8dTqOcEE/X_3rXY5z_5I/AAAAAAAAFgM/J0EiSFsvWhkiESC-_sX5zLzfQYXQqrvIgCLcBGAsYHQ/s72/pwa%2B001.png' rel='apple-touch-icon' sizes='72x72'/>
+    <link href='https://4.bp.blogspot.com/-J5LQHhlDBk8/X_3rXXIx9PI/AAAAAAAAFgQ/bW5BeLLmGnsfWD7f3FqitQcOk175RbOPgCLcBGAsYHQ/s96/pwa%2B002.png' rel='apple-touch-icon' sizes='96x96'/>
+    <link href='https://4.bp.blogspot.com/-nLJ6LNAGevE/X_3rXTIJZfI/AAAAAAAAFgU/LXHxpxOsxN0M-thccgWGkZhpwhBqKrjUwCLcBGAsYHQ/s120/pwa%2B003.png' rel='apple-touch-icon' sizes='120x120'/>
+    <link href='https://4.bp.blogspot.com/-WnZ4Gec3K3I/X_3rYU3dV_I/AAAAAAAAFgY/8_O0TH2goLIc3Y6GN2JyhKMOS_IwOzRlwCLcBGAsYHQ/s128/pwa%2B004.png' rel='apple-touch-icon' sizes='128x128'/>
+    <link href='https://4.bp.blogspot.com/-7wjaK5icb60/X_3rYkujWAI/AAAAAAAAFgc/_0PyU17JG4oTBrguIY0HVxsyv2xuV7wXwCLcBGAsYHQ/s144/pwa%2B005.png' rel='apple-touch-icon' sizes='144x144'/>
+    <link href='https://4.bp.blogspot.com/-5uQgJY5J6AM/X_3rYsTmKaI/AAAAAAAAFgg/Abmh9x767WwsitQY9AcME2iatS4vgOOOACLcBGAsYHQ/s152/pwa%2B006.png' rel='apple-touch-icon' sizes='152x152'/>
+    <link href='https://4.bp.blogspot.com/-KNSzvb6Fk8Y/X_3rZPiEO8I/AAAAAAAAFgk/RcfFpnYWxcYYQh8oYTg1KAQvQSrN5G3PACLcBGAsYHQ/s180/pwa%2B007.png' rel='apple-touch-icon' sizes='180x180'/>
+    <link href='https://4.bp.blogspot.com/-N9qREPbZ24s/X_3rZQ4wizI/AAAAAAAAFgo/SvZaIvX5YhkjON3B6k2K-6qkSc4YUx16QCLcBGAsYHQ/s192/pwa%2B008.png' rel='apple-touch-icon' sizes='192x192'/>
+    <link href='https://4.bp.blogspot.com/-WW7VI-YXLyU/X_3rZY5JXsI/AAAAAAAAFgs/UZh5gByNrt4Mdlw2-NBLc4x0PhJLbZ_NACLcBGAsYHQ/s384/pwa%2B009.png' rel='apple-touch-icon' sizes='384x384'/>
+    <link href='https://4.bp.blogspot.com/-eZQukJf1Gwg/X_3rZ56LK0I/AAAAAAAAFgw/c9Rhvsl6N6gnwbEfkjPrN2awWMdeMaxUwCLcBGAsYHQ/s512/pwa%2B010.png' rel='apple-touch-icon' sizes='512x512'/>
+
+    <!-- Add to home screen for Windows-->
+    <meta content='https://4.bp.blogspot.com/-5uQgJY5J6AM/X_3rYsTmKaI/AAAAAAAAFgg/Abmh9x767WwsitQY9AcME2iatS4vgOOOACLcBGAsYHQ/s152/pwa%2B006.png' name='msapplication-TileImage'/>
+    <meta content='#212121' name='msapplication-TileColor'/>
+  
+  <!-- Meta Description -->
+  <meta expr:content='data:blog.metaDescription' name='description'/>
+  <b:if cond='data:blog.metaDescription'>
+    <meta expr:content='data:blog.metaDescription' property='og:description'/>
+    <b:else/>
+    <meta expr:content='data:post.snippet' property='og:description'/>
+  </b:if>
+  <meta expr:content='data:blog.metaDescription' name='twitter:description'/>
+  
+  <!-- Meta Keywords -->
+  <meta expr:content='data:blog.title + &quot;, &quot; + data:blog.pageName' name='keywords'/>
+  <meta expr:content='data:blog.title' property='article:tag'/>
+  
+  <!-- Link Canonical -->
+  <link expr:href='data:blog.url' rel='canonical'/>
+  <link expr:href='data:blog.url' hreflang='x-default' rel='alternate'/>
+  <meta expr:content='data:blog.canonicalUrl' property='og:url'/>
+  
+  <!-- Site Owner -->
+  <meta content='M. Machrush Aliy Sirojjam Mushlich (BROJAMZ)' name='Author'/>
+  <link href='https://www.facebook.com/jampirojam' rel='me'/>
+  <link href='https://www.facebook.com/jampirojam' rel='author'/>
+  <link href='https://www.facebook.com/jampirojam' rel='publisher'/>
+  <meta content='100006264857808' property='fb:admins'/>
+  <meta content='100006264857808' property='fb:pages'/>
+  <meta content='100006264857808' property='fb:app_id'/>
+  <meta content='https://www.facebook.com/100006264857808' property='article:author'/>
+  <meta content='https://www.facebook.com/100006264857808' property='article:publisher'/>
+  <meta content='jampirojam' name='twitter:site'/>
+  <meta content='jampirojam' name='twitter:creator'/>
+
+  <!-- Theme Color -->
+  <meta content='#6875ff' name='theme-color'/>
+  <meta content='#6875ff' name='msapplication-navbutton-color'/>
+  <meta content='#6875ff' name='apple-mobile-web-app-status-bar-style'/>
+  <meta content='yes' name='apple-mobile-web-app-capable'/>
+  
+  <!-- Blogger Rss -->
+  <meta content='blogger' name='generator'/>
+  <link href='https://www.blogger.com/openid-server.g' rel='openid.server'/>
+  <link expr:href='data:blog.url' rel='openid.delegate'/>
+  <link expr:href='data:blog.homepageUrl + &quot;feeds/posts/default&quot;' expr:title='data:blog.title + &quot; - Atom&quot;' rel='alternate' type='application/atom+xml'/>
+  <link expr:href='&quot;//www.blogger.com/feeds/&quot; + data:blog.blogId + &quot;/posts/default&quot;' expr:title='data:blog.title + &quot; - Atom&quot;' rel='alternate' type='application/atom+xml'/>
+  <link expr:href='data:blog.homepageUrl + &quot;feeds/posts/default?alt=rss&quot;' expr:title='data:blog.title + &quot; - RSS&quot;' rel='alternate' type='application/rss+xml'/>
+  
+  <!-- Open Graph -->
+  <meta content='article' property='og:type'/>
+  <meta content='id_ID' property='og:locale'/>
+  <meta content='en_US' property='og:locale:alternate'/>
+  <meta content='en_GB' property='og:locale:alternate'/>
+  <meta content='summary_large_image' name='twitter:card'/>
+    
+  <!-- Robots Search -->
+  <meta content='width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=5.0' name='viewport'/>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  <meta content='IE=Edge' http-equiv='X-UA-Compatible'/>
+  <meta content='Indonesia' name='geo.placename'/>
+  <meta content='id' name='geo.country'/>
+  <meta content='ID-BT' name='geo.region'/>
+  <meta content='id' name='language'/>
+  <meta content='global' name='target'/>
+  <meta content='global' name='distribution'/>
+  <meta content='general' name='rating'/>
+  <meta content='1 days' name='revisit-after'/>
+  <meta content='true' name='MSSmartTagsPreventParsing'/>
+  <meta content='index, follow' name='googlebot'/>
+  <meta content='follow, all' name='Googlebot-Image'/>
+  <meta content='follow, all' name='msnbot'/>
+  <meta content='follow, all' name='Slurp'/>
+  <meta content='follow, all' name='ZyBorg'/>
+  <meta content='follow, all' name='Scooter'/>
+  <meta content='all' name='spiders'/>
+  <meta content='all' name='WEBCRAWLERS'/>
+  <meta content='aeiwi, alexa, alltheWeb, altavista, aol netfind, anzwers, canada, directhit, euroseek, excite, overture, go, google, hotbot. infomak, kanoodle, lycos, mastersite, national directory, northern light, searchit, simplesearch, Websmostlinked, webtop, what-u-seek, aol, yahoo, webcrawler, infoseek, excite, magellan, looksmart, bing, yandex, cnet, googlebot' name='search engines'/>
+  
+  <!-- Sife Verification -->
+  <meta content='b8dtW5sll1p_A4C46lLHhwM-_0M_t04XHhc3oIsPRcY' name='google-site-verification'/>
+  <meta content='' name='msvalidate.01'/>
+  <meta content='' name='p:domain_verify'/>
+  <meta content='' name='majestic-site-verification'/>
+  <meta content='M. Machrush Aliy Sirojjam Mushlich (BROJAMZ)' name='copyright'/>
+    
+  <script type='application/ld+json'>
+    {
+      &quot;@context&quot;: &quot;https://schema.org&quot;,
+      &quot;@type&quot;: &quot;WebSite&quot;,
+      &quot;url&quot;: &quot;<data:blog.homepageUrl.canonical/>&quot;,
+      &quot;name&quot;: &quot;<data:blog.title/>&quot;,
+      &quot;alternateName&quot;: &quot;<data:blog.title/>&quot;,
+      &quot;potentialAction&quot;: {
+        &quot;@type&quot;: &quot;SearchAction&quot;,
+        &quot;target&quot;: &quot;<data:blog.homepageUrl.canonical/>search?q={search_term_string}&amp;max-results=12&quot;,
+        &quot;query-input&quot;: &quot;required name=search_term_string&quot;
+      }
+    }
+  </script>
+  
+		<link href='https://fonts.googleapis.com' rel='preconnect'/>
+		<link crossorigin='crossorigin' href='https://fonts.gstatic.com' rel='preconnect'/>
+		<link href='https://fonts.googleapis.com/css2?family=Montserrat' rel='stylesheet'/>
+		<link href='https://fonts.googleapis.com/css2?family=Handlee' rel='stylesheet'/>
+		<b:skin><![CDATA[/*
+
+			/* COLOR VARIABLE */
+			:root{
+          	--hitam:#222222;
+          	--putih:#fefefe;
+          	--tautan:#fda000;
+			}
+
+			@font-face {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(https://fonts.gstatic.com/s/montserrat/v18/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+          	}
+
+            @font-face {
+            font-family: 'Handlee';
+            font-style: normal;
+            font-weight: 400;
+            src: url(https://fonts.gstatic.com/s/handlee/v9/-F6xfjBsISg9aMakPm3wow.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            }
+
+			/* FONT DEFAULT */
+			h1{font-size:20px} h2{font-size:18px;font-weight: 400;} h3{font-size:16px;font-weight: 400;} h4{font-size:14px;font-weight: 400;} h5{font-size:12px;font-weight: 400;} h6{font-size:10px;font-weight: 400;}
+			a{color:var(--hitam);}
+			a:hover{color:var(--hitam);text-decoration: none;}
+			a:link{color:var(--hitam);text-decoration: none;}
+			a:active{color:var(--hitam);text-decoration: none;}
+			a:visited{color:var(--hitam);text-decoration: none;}
+			
+            .klikin {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+			cursor:pointer;
+            }
+			.klikin:focus{outline: none !important;}
+
+         	body{max-width:1080px;margin:auto;font-family:'Montserrat';}
+			.bersih{clear:both}
+			br{margin-bottom:10px}
+			canvas{position:fixed;left:0;top:0;z-index:-1;max-width:100%;margin:auto;min-height:1000px;}
+
+			/* HEADER */			
+			header{background:var(--putih);position:fixed;max-width:1080px;width:100%;top:0;border-bottom:2px solid var(--hitam);height:auto;border-radius:0 0 20px 20px}
+			.kiri{width:30%;float:left;background:var(--putih);color:var(--hitam);padding:0 20px}
+			.kiri h1{float:left;}
+			.logo{height:30px;width:auto;padding:10px 0;float:left}
+			.kanan{display:flex;justify-content:flex-end;background:var(--putih);color:var(--hitam);padding:0 20px}
+			.kanan h3{margin-left:20px}
+
+			/* SECTION*/
+			section{max-width:1080px;margin:auto;font-family: 'Handlee';}
+
+			/* SECTION PROFILE*/
+			#profil{background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)), url("https://blogger.googleusercontent.com/img/a/AVvXsEj0mSPYTer4lN0lVUndjIdmqDN80YfLlOQC8EjHV-rkopJnlrWbSNFm6J1leQusOZ7MMuJurrv-6O6jjPuO3ZIffnJRVqabP4mDPVfdI3x9xf3AJXnBi5oObGTKd_w_8cuW-Yvodx8RrJkCs78NwEokaAClxXa67pIZyYAT4cfnbplNW2Y3_GN6EadG"); padding:40px 0 160px 0;border-radius:0 0 15% 15%}
+ 			#profil h2{color:var(--putih);padding:10px 20px;}
+			.profil{color:var(--putih);padding:10px 20px;}
+			.profil h1{font-size:200%;text-align:center;}
+			.profil h3{font-size:150%;text-align:center;}
+
+            .sosmed{display:flex;width:100%;justify-content:center}
+            .icon{width:40px;height:auto;padding: 5px;box-shadow: 0 0 5px 3px rgba(10,10,10,.65);border-radius: 25%;background-color:rgba(10,10,10,.25);margin: 5px;}
+            .icon:hover{box-shadow: 0 0 5px 3px rgba(255,255,255,.65);border-radius: 25%;background-color:rgba(255,255,255,.25);}
+
+			/* SECTION PORTFOLIO */
+			#portfolio{padding:40px 0;}
+			.portfolio{color:var(--hitam);padding:10px 20px;}
+			.portfolio h1{font-size:200%;text-align:center}
+
+            .gridporto{display:flex;justify-content:center;flex-wrap:wrap;}
+            .griding{padding:10px;width:30%;position:relative}
+			.griding h3{ font-size:100%; font-weight:700;text-align:center}
+            .gambarporto{opacity: 1;display: block;width: 100%;height: auto;transition: .5s ease;backface-visibility: hidden;border-radius:20px;}
+			.klikgambar{transition: .5s ease;opacity: 0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);text-align: center;}
+			.griding:hover .gambarporto{opacity:0.3}
+			.griding:hover .klikgambar{opacity:1}
+
+			/* SECTION CERTIFICATE */
+			#sertifikat{padding:40px 0;}
+			.sertifikat{color:var(--hitam);padding:10px 20px;}
+			.sertifikat h1{font-size:200%;text-align:center}
+            .sertif{display:flex;justify-content:center;flex-wrap:wrap;text-align:center}
+            .icon-sertif{padding:10px;width:18%}
+            .icon-sertif img{height:100px}
+			.icon-sertif h3{font-size:150%;text-align:center}
+			.lihatsertif{display:flex;justify-content:center}
+			.lihatsertif h3{display:flex;padding: 10px 20px; font-size:100%; background:var(--hitam);color:var(--putih);justify-content:center;border-radius:20px}
+
+			/* SECTION HOBBY */
+			#hobi{padding:40px 0;}
+			.hobi{color:var(--hitam);padding:10px 20px;}
+			.hobi h1{font-size:200%;text-align:center}
+            .daftarhobi{display:flex;justify-content:center;flex-wrap:wrap;text-align:center}
+            .icon-hobi{padding:10px;width:25%}
+            .icon-hobi img{height:100px}
+			.icon-hobi h3{font-size:150%;text-align:center}
+
+			/* SECTION CONTACT */
+			#kontak h1{font-size:200%;text-align:center;}
+			#kontak{padding:40px 0;background:rgba(0,0,0,.65);border-radius:20% 20% 0 0;color: var(--putih);}
+			.kontak{padding: 10px 20px;display: flex;justify-content: space-around;align-content: stretch;align-items: center;}
+			.kontakkiri, .kontakkanan{padding:20px}
+			.kontakkiri h3{font-size:125%;}
+			.kontakkiri h3 a{color:var(--putih);}
+			.sewa{padding: 20px;background: #000;color: #fff !important;border-radius: 20px;font-size:125%}
+
+			/* FOOTER*/
+			footer{display:none;}
+
+			/* POP-UP */
+            .melayang {position: fixed;top: 0;bottom: 0;left: 0;right: 0;background: rgba(0, 0, 0, 0.7);transition: opacity 500ms;visibility: hidden;opacity: 0;}
+            .melayang:target {visibility: visible;opacity: 1;}
+
+            .popup {margin:30px auto;padding: 20px;background: #fff;border-radius: 5px;width: 90%;max-width:900px;position: relative;transition: all 5s ease-in-out;}
+            .popupatas{display: flex;align-content: center;justify-content: space-between; padding: 20px 0;font-weight: bold;font-size: 20px;}
+            .popup .isianpopup {max-height: 30%;overflow: auto;}
+
+			/* RESPONSIVE WEB DESIGN */
+            @media screen and (max-width:1040px){
+            .icon-sertif{padding:10px;width:30%}
+            .icon-sertif img{height:90px}
+            }
+			@media screen and (max-width:900px){
+			.kanan{display:none}
+
+			footer{display:block;width:100%;position:fixed;bottom:0;border-top: 2px solid var(--hitam);background:var(--putih);border-radius:15% 15% 0 0}
+            .navigasi{display:flex; width:100%;height:40px;justify-content: space-around;flex-wrap: nowrap;align-items: center;padding:5px 0;}
+            .navigasi div{padding:0 10px}
+            .icon-mobile{width:20px; height:auto}
+			}
+            @media screen and (max-width:768px){
+            .icon {width:35px}
+
+            .icon-sertif img{height:70px}
+            }
+			@media screen and (max-width:640px){
+            header{border-radius:0 0 100% 0}
+            .kiri{float:none;width:100%}
+
+            #profil{border-radius:0 0 5% 5%;}
+			.profil h1{font-size:125%;}
+			.profil h3{font-size:100%;}
+
+			.icon{width:30px;height:auto;padding:4px;margin:4px}
+
+			.portfolio h1{font-size:125%;}
+            .griding{padding:10px;width:45%}
+
+			.sertifikat h1{font-size:125%;}
+            .icon-sertif{padding:10px;width:22%}
+            .icon-sertif img{height:60px}
+			.icon-sertif h3{font-size:100%;}
+			.lihatsertif h3{font-size:80%}
+
+			.hobi h1{font-size:125%;}
+            .icon-hobi img{height:60px}
+			.icon-hobi h3{font-size:100%;}
+
+			#kontak h1{font-size:125%;}
+			.kontak{flex-direction: column;}
+			.kontakkanan{padding:10px 10px 60px 10px}
+			.kontakkiri{padding:10px;text-align:center}
+			.kontakkiri h3{font-size:100%;}
+			.sewa{padding:10px;font-size:100%}
+			}
+
+			@media screen and (max-width:480px){
+            #profil{border-radius:0 0 20px 20px}
+			.profil h1{font-size:110%;}
+			.profil h3{font-size:90%;}
+            .sosmed{flex-wrap:wrap}
+
+            .icon-sertif{padding:10px;width:40%}
+            .icon-sertif img{height:50px}
+			.icon-sertif h3{font-size:90%;}
+			
+			.icon-hobi{width:40%}
+            .icon-hobi img{height:50px}
+			.icon-hobi h3{font-size:90%;}
+			.kontakkiri h3{font-size:90%;}
+			.sewa{padding:10px;font-size:90%}
+
+            .griding{width:100%}
+			}
+	
+ 			@media screen and (max-width:320px){
+         	.icon{width:25px;padding:3px;margin:4px}
+
+			.lihatsertif h3{font-size:70%;padding:5px 10px}
+         	}
+
+            @media screen and (max-width:240px){
+            .icon-sertif{padding:10px;width:90%}
+            .icon-sertif img{height:30px}
+			.icon-sertif h3{font-size:80%;}
+
+			.icon-hobi{width:90%}
+            .icon-hobi img{height:30px}
+			.icon-hobi h3{font-size:80%;}
+			.kontakkiri h3{font-size:90%;}
+			.sewa{font-size:90%}
+    		}
+            @media screen and (max-width:114px){
+    		}
+
+ 
+	//]]></b:skin>
+&lt;!--</head>--&gt; &lt;/head&gt;
+	<body>
+		<canvas id='kanvas'/>
+		<b:section class='main klikin' id='main' showaddelement='yes'/>
+		<header>
+			<div class='kiri klikin' onclick='location.href=&apos;#profil&apos;;'>
+				<h1>OJ(</h1>
+				<img alt='logo' class='logo lazy' src='https://blogger.googleusercontent.com/img/a/AVvXsEh3i9Wdma6fHN26jk_-2Acmgliie0b8wQHUW9vCCIEFzDkTEoYq5G6LQrkOvDyogdEA-rjT9PhWd1_MffqHNnBmlZIuKOQ-NnBo-GEykUQ9lHocx8xz8MMGDhXzxbEPcTbda_ngijgK5PUrwxF3AlviHEbTiXxyK1OK8YF_YJ_MNk3VbUJS35HdK_NANw=s320'/>
+				<h1>)M</h1>
+			</div>
+			<div class='kanan klikin'>
+				<h3>
+					<a href='#profil'>Home</a>
+				</h3>
+				<h3>
+					<a href='#portfolio'>Archives</a>
+				</h3>
+				<h3>
+					<a href='#sertifikat'>Certificates</a>
+				</h3>
+				<h3>
+					<a href='#hobi'>Hobbies</a>
+				</h3>
+				<h3>
+					<a href='#kontak'>Contacs</a>
+				</h3>
+				<h3>
+					<a href='#popupinfo'>About</a>
+				</h3>
+			</div>
+		</header>
+		<div class='bersih'/>
+		<section id='profil'>
+			<h2/>
+			<div class='profil'>
+				<h1>M. MACHRUSH ALIY SIROJJAM MUSHLICH</h1>
+				<h3>
+				Hello, my name is Ojam, sometimes called Machrush. An Information Systems graduate, based in Gresik, Indonesia. I&#39;ve organizational experience which builds my skills in various fields. This blog I made to archive all artifacts of my portfolio, hope it can represent of me, especially my technical skill. Thank you for visiting.
+				</h3>
+			</div>
+			<div class='sosmed'>
+				<a class='linkedin klikin' href='https://linkedin.com/in/jampirojam' target='_blank'>
+					<img alt='icon' class='icon lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEha_GNMfPiqaxe2gMv5T7aIWnIrGFUUwBBxiw2j2hasHNR_oTWTeijeUrtebrKunXAWpqGKRZmK9LXrPa1xabR7cFVlz1acU2U2yte5pkH-j_RK3DnDfgYYepRo33rYG7p8GNylO5PaKstgBXq3F_OuMpms6fh1p1XgovSnOtktHMbDxiGifgxgegYj' src=''/>
+				</a>
+				<a class='blogger klikin' href='https://brojamz.blogspot.com' target='_blank'>
+					<img alt='icon' class='icon lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEjaatzQUxXBBOM7AC9ZYwJrUYcGtQDY8XcQMwxDV2fqHmqmvUPcpfHdqgjJ9pFhd5Ck1jokl0kFujSZ_VC-CHXMNJqDiUp67TJJa18LaXFZluddNfKRtmPs72KwLPFGT2G9_yjiLxxsF4kDDCykNQ3_kNIHpbotT7G2yyqvkkyAQ4_SodGwHrq-9Nba' src=''/>
+				</a>
+				<a class='instagram klikin' href='https://instagram.com/jampirojam' target='_blank'>
+					<img alt='icon' class='icon lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEgFeTxrX2WUbETeXKGfUqIGbZump21mrQrINw14rp2qkMql1t84ME42DL19GoLzFeKB3kGdcVbZXe8KrWE9F_d4tiEVS8oy2W55DLQOKcnuyFNmVzm0ss6CYRWIuLF4T352tE3JbJONrPTt5CsgDWSykpHc5DEHEuMMCG7-N31s6ZsbVY47JjStL2DM' src=''/>
+				</a>
+				<a class='twitter klikin' href='https://twitter.com/jampirojam' target='_blank'>
+					<img alt='icon' class='icon lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEj02FfvnBQWOgyh7YWaJpoW9XfAAsWUmiabTiywvA33wHv-b3f_XUx47PUpFbiosCzy0WAHRyjadH8DjLe6x8NzBLHLTxxRzU4oo_3zDqJRjlmSZJBaD-vt9drJAZqL-Yv9fbFcEnDIEkpBBMvGcK501NYizs6VfzeDHQCpQJ9BpiP23wJJQ0sp5Ezx' src=''/>
+				</a>
+				<a class='facebook klikin' href='https://facebook.com/jampirojam' target='_blank'>
+					<img alt='icon' class='icon lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEiYuYMrkThDz2lnmovZCjBSdjhR-W0sY8f03z3WeFpuVi0NdRTi3Dzbnbh4NzIsPNRBOYmpr7C834zguGRmbUYxeXVbxJV2QDyF0k1ClrW9FSLLqvBBewBZsGLcDHkwxmDWb4iZDFAAzKiY-57FAa3fz91qsW3brz7HcK2gr3uvHOyBI3gNa2nQx3I7' src=''/>
+				</a>
+			</div>
+		</section>
+		<section id='portfolio'>
+			<div class='portfolio'>
+				<h1>Archives</h1>
+				<div class='gridporto'>
+					<a class='griding klikin' href='https://v3.globalgamejam.org/2018/games/mumet-selalu' target='_blank'>
+						<img alt='gambarporto' class='gambarporto lazy' data-src='https://ggj.s3.amazonaws.com/styles/game_sidebar__wide/game/featured_image/screenshot_1_2.jpg' src=''/>
+                      <div class='klikgambar'>
+                        <div class='tulisangambar'>VIEW</div>
+                      </div>
+                      <h3>Mumet Selalu</h3>
+					</a>
+				</div>
+			</div>
+		</section>
+		<section id='sertifikat'>
+			<div class='sertifikat'>
+				<h1>Certificates</h1>
+				<div class='sertif'>
+					<a class='icon-sertif klikin' href='https://drive.google.com/drive/folders/1qZ7Ship7u4k8T5pYfa1ns-w6FQtEpvAX?usp=sharing' target='_blank'>
+                      <img alt='bootcamp' class='bootcamp lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEi-edrp2eQa5Lu2eq2up-v95mzIYj8nt_g4prJRlHh5xkkRVmmVc9Z5CcnT3qkz1eQeydiAWNfreW7IyTDlLwujW9zXnvjAca5uhfDXu_jEndZ2ZYpvjkPoUka2ApMGJEVo3MAzysLmBXFbkVd9ZG_-_rqeLVoAmPgz6hwUpNq897ledhQYKd3unRLBug=s320' src=''/>   
+						<h3>Bootcamp</h3>
+					</a>
+					<a class='icon-sertif klikin' href='https://drive.google.com/drive/folders/1U5iJFJuYWT2MFkC6C8S9CLlcDQfBS_bs?usp=sharing;' target='_blank'>
+                      <img alt='course' class='course lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEhQCfZXVIu-ntPF5qwmWkpGKifzUQ-JiQuSa2iRGfZeIGRUn8VNpjqGDMhNdLqAigIHAoKXPFckKAerPHDcOqB9g3sCuu5rNnoyglO1HFHwgNteZfzhRbk72pAXHmeI7yaZwLTxwXV9LO_89Xy6uc4_Ghk04fY7YrE-LbtqXzJx7NxhWX1AcQZTE2QozA=s320' src=''/>   
+						<h3>Course</h3>
+					</a>
+					<a class='icon-sertif klikin' href='https://drive.google.com/drive/folders/1qZ7Ship7u4k8T5pYfa1ns-w6FQtEpvAX?usp=sharing' target='_blank'>
+                      <img alt='competition' class='competition lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEi4mCuJVnjXO73cxnDeS6RcRoeZ2rox03cMELauwqg8BPazUFPRGeZN_SNSu-mctLjgXvXw4BJsWt675JYD-jH-WESULuoCSBHmC1nn5YX3sa25c4TUhHXIvtjv3Ngf3RJrzvgTAaPBHtHgefnkhO-3jbPZtRpO2i6oR7YKkcDfcyP0Y8XF069oh3Hxyg=s320' src=''/>                      
+						<h3>Competition</h3>
+					</a>
+					<a class='icon-sertif klikin' href='https://drive.google.com/drive/folders/1qZ7Ship7u4k8T5pYfa1ns-w6FQtEpvAX?usp=sharing' target='_blank'>
+                      <img alt='seminar' class='seminar lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEjProkQvq96x0mdC9DbNEibFsBO0ZuYB-nwnC_BIiIuxLF_arA0RCrFS-XU6K9YdovhS4SzR_BGTz4MjsTkGWYd9Us7Y0SIHH9PP-HT7MyUo1aoBXh2PWt488GHCjueFUUkSBaRCn9WXLes0oFObRQpPTRO8F-IKnDpYIn4fnG0GEfJEW1tEkdgwGhKew=s320' src=''/>
+                      <h3>Seminar</h3>
+					</a>
+					<a class='icon-sertif klikin' href='https://drive.google.com/drive/folders/1U5iJFJuYWT2MFkC6C8S9CLlcDQfBS_bs?usp=sharing' target='_blank'>
+                      <img alt='technical' class='technical lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEge_Op7W48j9EjzOLUpT29CtUn31n1TUljH8BOKJKqhEBoZ6EQFL0gQrs6HhzI5x_WrtPfVdw-lX4QcAjXzykOF3eNCExZUXWM4lJNwH8VbwUMerFsGgNPgJ_C35GJ5VYLnZrMAFILeGmtcNl4ymzeRPPagVjrvi2vTxwefOnipBfU2LrmjsViYeTm2aA=s320' src=''/>   
+                      <h3>Technical</h3>
+					</a>
+				</div>
+              <a class='lihatsertif klikin' href='https://drive.google.com/drive/u/1/folders/1yuxQDVZmg-1wkd-VCpvc1I5lJ2ISodCu' target='_blank'>
+                <h3>VIEW ALL CERTIFICATES</h3> 
+              </a>
+			</div>
+		</section>
+      		<section id='hobi'>
+			<div class='hobi'>
+				<h1>Hobbies</h1>
+				<div class='daftarhobi'>
+					<div class='icon-hobi'>
+                      <img alt='crossword' class='crossword lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEhGgEfoY0CaizBM3Gmk8BDSssJb5tZziCW9jRJjAgcBRzm0XjHNPsISTfFFy-wxGOUA75SY-EIroYFTyOR8t8JRUFO6ujRbmB9FZDV2R7rAEaoAkwJjebqsO0P958GwGj10GOg9JuSZbKYc4OhpbZ5sY_mx8OfQX-uWMWyRw0DjY0mYecGt9VMww7oZrg=s320' src=''/>   
+						<h3>Crossword</h3>
+					</div>
+					<div class='icon-hobi'>
+                      <img alt='esport' class='esport lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEiyxr2PhTzqhx5zKZZGUGBRXYwgtJgKPmVWeB51l9ktYbuY2y7Qb9krAcnfrU1DOkvUD1UopMGIPNXd2cEKeVaaqkyoLXxfKu2AHt_pjbr9VhZVMXCeqjqBBJVZyaWrQEUuiGo6CMqrYJCZycoTG-9gUWK8skxgRpNk1SeIf6t2j76T0FT7XvoxM_GVbw=s320' src=''/>   
+						<h3>E-Sports</h3>
+					</div>
+					<div class='icon-hobi'>
+                      <img alt='writing' class='writing lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEjIRPZZ4EglyZPA0-T7eNbPzak2Nz6E8I0ruTNxZGNBNK5ygeUf0t9Xs7mIZRScIbADL81rnGS7IVO4M0Z1tL220yZ3txIncZhmRiqHPeojPAuBsjjQ_kiFhxHacQN_taRgEyMZShV7qXrtFyw9fa1ANR_RyCRk5MGOVywoGFwUxfQVQoylkiz-MUntSw=s320' src=''/>                      
+						<h3>Writing</h3>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id='kontak'>
+			<h1>Contacts</h1>
+			<div class='kontak'>
+				<div class='kontakkiri'>
+              		<h3>
+						<a href='https://wa.me/628975500905'>
+                          +62 897 5500 905</a>
+                </h3>
+					<h3>
+						<a href='mailto:jampirojam@gmail.com'>jampirojam@gmail.com</a>
+                </h3>
+					<h3>Jl. Raya Cangkir<br/>Driyorejo, Gresik, Indonesia. 61177.
+                </h3>
+              </div>
+				<div class='kontakkanan'>
+                  <a class='sewa klikin' href='mailto:jampirojam@gmail.com' target='_blank'>HIRE ME</a>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div class='navigasi'>
+				<div class='home klikin' onclick='location.href=&apos;#profil&apos;;'>
+					<svg class='icon-mobile' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+						<path d='M23.121,9.069,15.536,1.483a5.008,5.008,0,0,0-7.072,0L.879,9.069A2.978,2.978,0,0,0,0,11.19v9.817a3,3,0,0,0,3,3H21a3,3,0,0,0,3-3V11.19A2.978,2.978,0,0,0,23.121,9.069ZM15,22.007H9V18.073a3,3,0,0,1,6,0Zm7-1a1,1,0,0,1-1,1H17V18.073a5,5,0,0,0-10,0v3.934H3a1,1,0,0,1-1-1V11.19a1.008,1.008,0,0,1,.293-.707L9.878,2.9a3.008,3.008,0,0,1,4.244,0l7.585,7.586A1.008,1.008,0,0,1,22,11.19Z'/>
+					</svg>
+				</div>
+				<div class='archives klikin' onclick='location.href=&apos;#portfolio&apos;;'>
+					<svg class='icon-mobile' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+						<path d='M2,11H13a2,2,0,0,0,2-2V2a2,2,0,0,0-2-2H2A2,2,0,0,0,0,2V9A2,2,0,0,0,2,11ZM2,2H13V9H2Z'/>
+						<path d='M22,0H19a2,2,0,0,0-2,2V9a2,2,0,0,0,2,2h3a2,2,0,0,0,2-2V2A2,2,0,0,0,22,0Zm0,9H19V2h3Z'/>
+						<path d='M5,13H2a2,2,0,0,0-2,2v7a2,2,0,0,0,2,2H5a2,2,0,0,0,2-2V15A2,2,0,0,0,5,13Zm0,9H2V15H5Z'/>
+						<path d='M22,13H11a2,2,0,0,0-2,2v7a2,2,0,0,0,2,2H22a2,2,0,0,0,2-2V15A2,2,0,0,0,22,13Zm0,9H11V15H22Z'/>
+					</svg>
+				</div>
+				<div class='certificates klikin' onclick='location.href=&apos;#sertifikat&apos;;'>
+					<svg class='icon-mobile' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='m11 12a1 1 0 0 1 0 2h-3a1 1 0 0 1 0-2zm6-3a1 1 0 0 0 -1-1h-8a1 1 0 0 0 0 2h8a1 1 0 0 0 1-1zm-9-3h8a1 1 0 0 0 0-2h-8a1 1 0 0 0 0 2zm12 13.444v3.833a.721.721 0 0 1 -1.231.51l-.769-.768-.769.768a.721.721 0 0 1 -1.231-.51v-3.833a3.987 3.987 0 0 1 2-7.444 3.939 3.939 0 0 1 1 .142v-7.142a3 3 0 0 0 -3-3h-8a3 3 0 0 0 -3 3v12a3 3 0 0 0 3 3h5a1 1 0 0 1 0 2h-5a5.006 5.006 0 0 1 -5-5v-12a5.006 5.006 0 0 1 5-5h8a5.006 5.006 0 0 1 5 5v8.382a3.95 3.95 0 0 1 -1 6.062zm0-3.444a2 2 0 1 0 -2 2 2 2 0 0 0 2-2z'/></svg>
+				</div>
+				<div class='hobbies klikin' onclick='location.href=&apos;#hobi&apos;;'>
+					<svg class='icon-mobile' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M8.965,24H4a4,4,0,0,1-4-4V15a4,4,0,0,1,4-4h8.857a3.144,3.144,0,0,1,2.69,1.519l3.217-3.535a3.01,3.01,0,0,1,4.254-.2,3.022,3.022,0,0,1,.217,4.23l-6.8,7.637A10.012,10.012,0,0,1,8.965,24ZM4,13a2,2,0,0,0-2,2v5a2,2,0,0,0,2,2H8.965a8.005,8.005,0,0,0,5.972-2.678l6.805-7.638a1.015,1.015,0,0,0-.072-1.421A1.029,1.029,0,0,0,20.942,10a1,1,0,0,0-.7.329L15.816,15.2A3.158,3.158,0,0,1,13.3,17.252l-5.161.738a1,1,0,0,1-.284-1.98l5.162-.737A1.142,1.142,0,0,0,12.857,13Zm7-3.926a1.986,1.986,0,0,1-1.247-.436C8.041,7.264,6,5.2,6,3.2A3.109,3.109,0,0,1,9,0a2.884,2.884,0,0,1,2,.817A2.884,2.884,0,0,1,13,0a3.109,3.109,0,0,1,3,3.2c0,2-2.041,4.064-3.754,5.439A1.986,1.986,0,0,1,11,9.074ZM9,2A1.115,1.115,0,0,0,8,3.2c0,.9,1.151,2.39,3.006,3.879C12.849,5.59,14,4.1,14,3.2A1.115,1.115,0,0,0,13,2a1.115,1.115,0,0,0-1,1.2,1,1,0,0,1-2,0A1.115,1.115,0,0,0,9,2Z'/></svg>
+				</div>
+				<div class='contacts klikin' onclick='location.href=&apos;#kontak&apos;;'>
+					<svg class='icon-mobile' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+						<path d='M18,0H8A5,5,0,0,0,3.424,3H2A1,1,0,0,0,2,5H3V7H2A1,1,0,0,0,2,9H3v2H2a1,1,0,0,0,0,2H3v2H2a1,1,0,0,0,0,2H3v2H2a1,1,0,0,0,0,2H3.424A5,5,0,0,0,8,24H18a5.006,5.006,0,0,0,5-5V5A5.006,5.006,0,0,0,18,0Zm3,19a3,3,0,0,1-3,3H8a3,3,0,0,1-3-3V5A3,3,0,0,1,8,2H18a3,3,0,0,1,3,3Zm-8-7a3,3,0,0,0,0-6A3,3,0,0,0,13,12Zm5,6a1,1,0,0,1-2,0,3,3,0,0,0-6,0,1,1,0,0,1-2,0C8.211,11.392,17.791,11.394,18,18Z'/></svg>
+				</div>
+				<div class='about klikin' onclick='location.href=&apos;#popupinfo&apos;;'>
+					<svg class='icon-mobile' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,22A10,10,0,1,1,22,12,10.011,10.011,0,0,1,12,22Z'/><path d='M12,5a1,1,0,0,0-1,1v8a1,1,0,0,0,2,0V6A1,1,0,0,0,12,5Z'/><rect height='2' rx='1' width='2' x='11' y='17'/></svg>
+              </div>
+			</div>
+		</footer>
+      <div class='melayang' id='popupinfo'>
+        <div class='popup'>
+          <div class='popupatas'>
+          <a> About OJAM </a>
+          <a class='tutup klikin' href='#'>X</a>
+          </div>
+          <hr/>
+          <div class='isianpopup'>
+            OJAM is a personal blog that created for portfolio archives. This blog is built with Blogger, using front-end development engine (HTML, CSS, JavaScript, and JQuery) by my own style. Responsive Web Design (RWD) and Progressive Web App (PWA) supported; Search Engine Optimization (SEO) test scores reached 86% using Lighthouse; and performance test reached 97 point using PageSpeed Insight.
+            <br/>
+            <hr/>
+            <br/>
+            Thank you:<br/>
+            <a href='https://blogger.com'>- Blogger</a><br/>
+            <a href='https://flaticon.com'>- Flaticon</a><br/>
+            <a href='https://freepik.com'>- Freepik</a>
+          </div>
+        </div>
+      </div>
+		<script>//<![CDATA[
+        
+       !function(e){function t(e,t){var n=new Image,r=e.getAttribute("data-src");n.onload=function(){e.parent?e.parent.replaceChild(n,e):e.src=r,t&&t()},n.src=r}for(var n=new Array,r=function(e,t){if(document.querySelectorAll)t=document.querySelectorAll(e);else{var n=document,r=n.styleSheets[0]||n.createStyleSheet();r.addRule(e,"f:b");for(var l=n.all,o=0,c=[],i=l.length;o<i;o++)l[o].currentStyle.f&&c.push(l[o]);r.removeRule(0),t=c}return t}("img.lazy"),l=function(){for(var r=0;r<n.length;r++)l=n[r],o=void 0,(o=l.getBoundingClientRect()).top>=0&&o.left>=0&&o.top<=(e.innerHeight||document.documentElement.clientHeight)&&t(n[r],(function(){n.splice(r,r)}));var l,o},o=0;o<r.length;o++)n.push(r[o]);l(),function(t,n){e.addEventListener?this.addEventListener(t,n,!1):e.attachEvent?this.attachEvent("on"+t,n):this["on"+t]=n}("scroll",l)}(this);
+
+var canvas=document.getElementById("kanvas"),can_w=parseInt(canvas.getAttribute("width")),can_h=parseInt(canvas.getAttribute("height")),ctx=canvas.getContext("2d"),ball={x:0,y:0,vx:0,vy:0,r:0,alpha:1,phase:0},ball_color={r:0,g:0,b:0},R=2,balls=[],alpha_f=.03,alpha_phase=0,link_line_width=.8,dis_limit=260,add_mouse_point=!0,mouse_in=!1,mouse_ball={x:0,y:0,vx:0,vy:0,r:0,type:"mouse"};function getRandomSpeed(a){var e=-1;switch(a){case"top":return[randomNumFrom(e,1),randomNumFrom(.1,1)];case"right":return[randomNumFrom(e,-.1),randomNumFrom(e,1)];case"bottom":return[randomNumFrom(e,1),randomNumFrom(e,-.1)];case"left":return[randomNumFrom(.1,1),randomNumFrom(e,1)];default:return}}function randomArrayItem(a){return a[Math.floor(Math.random()*a.length)]}function randomNumFrom(a,e){return Math.random()*(e-a)+a}function getRandomBall(){switch(randomArrayItem(["top","right","bottom","left"])){case"top":return{x:randomSidePos(can_w),y:-R,vx:getRandomSpeed("top")[0],vy:getRandomSpeed("top")[1],r:R,alpha:1,phase:randomNumFrom(0,10)};case"right":return{x:can_w+R,y:randomSidePos(can_h),vx:getRandomSpeed("right")[0],vy:getRandomSpeed("right")[1],r:R,alpha:1,phase:randomNumFrom(0,10)};case"bottom":return{x:randomSidePos(can_w),y:can_h+R,vx:getRandomSpeed("bottom")[0],vy:getRandomSpeed("bottom")[1],r:R,alpha:1,phase:randomNumFrom(0,10)};case"left":return{x:-R,y:randomSidePos(can_h),vx:getRandomSpeed("left")[0],vy:getRandomSpeed("left")[1],r:R,alpha:1,phase:randomNumFrom(0,10)}}}function randomSidePos(a){return Math.ceil(Math.random()*a)}function renderBalls(){Array.prototype.forEach.call(balls,(function(a){a.hasOwnProperty("type")||(ctx.fillStyle="rgba("+ball_color.r+","+ball_color.g+","+ball_color.b+","+a.alpha+")",ctx.beginPath(),ctx.arc(a.x,a.y,R,0,2*Math.PI,!0),ctx.closePath(),ctx.fill())}))}function updateBalls(){var a=[];Array.prototype.forEach.call(balls,(function(e){e.x+=e.vx,e.y+=e.vy,e.x>-50&&e.x<can_w+50&&e.y>-50&&e.y<can_h+50&&a.push(e),e.phase+=alpha_f,e.alpha=Math.abs(Math.cos(e.phase))})),balls=a.slice(0)}function loopAlphaInf(){}function renderLines(){for(var a,e,t=0;t<balls.length;t++)for(var n=t+1;n<balls.length;n++)(a=getDisOf(balls[t],balls[n])/dis_limit)<1&&(e=(1-a).toString(),ctx.strokeStyle="rgba(150,150,150,"+e+")",ctx.lineWidth=link_line_width,ctx.beginPath(),ctx.moveTo(balls[t].x,balls[t].y),ctx.lineTo(balls[n].x,balls[n].y),ctx.stroke(),ctx.closePath())}function getDisOf(a,e){var t=Math.abs(a.x-e.x),n=Math.abs(a.y-e.y);return Math.sqrt(t*t+n*n)}function addBallIfy(){balls.length<20&&balls.push(getRandomBall())}function render(){ctx.clearRect(0,0,can_w,can_h),renderBalls(),renderLines(),updateBalls(),addBallIfy(),window.requestAnimationFrame(render)}function initBalls(a){for(var e=1;e<=a;e++)balls.push({x:randomSidePos(can_w),y:randomSidePos(can_h),vx:getRandomSpeed("top")[0],vy:getRandomSpeed("top")[1],r:R,alpha:1,phase:randomNumFrom(0,10)})}function initCanvas(){canvas.setAttribute("width",window.innerWidth),canvas.setAttribute("height",window.innerHeight),can_w=parseInt(canvas.getAttribute("width")),can_h=parseInt(canvas.getAttribute("height"))}function goMovie(){initCanvas(),initBalls(90),window.requestAnimationFrame(render)}console.log(randomNumFrom(0,10)),window.addEventListener("resize",(function(a){console.log("Window Resize..."),initCanvas()})),goMovie(),canvas.addEventListener("mouseenter",(function(){console.log("mouseenter"),mouse_in=!0,balls.push(mouse_ball)})),canvas.addEventListener("mouseleave",(function(){console.log("mouseleave"),mouse_in=!1;var a=[];Array.prototype.forEach.call(balls,(function(e){e.hasOwnProperty("type")||a.push(e)})),balls=a.slice(0)})),canvas.addEventListener("mousemove",(function(a){a=a||window.event;mouse_ball.x=a.pageX,mouse_ball.y=a.pageY}));
+//]]>
+		</script>
+&lt;!--</body>--&gt; &lt;/body&gt;
+</html>
