@@ -22,7 +22,6 @@
     <meta expr:content='data:blog.pageTitle' name='twitter:image:alt'/>
     <b:else/>
     <meta expr:content='data:blog.pageName' property='og:title'/>
-    <meta expr:content='data:blog.pageName' property='og:image:alt'/>
     <meta expr:content='data:blog.pageName' name='twitter:title'/>
     <meta expr:content='data:blog.pageName' name='twitter:image:alt'/>
   </b:if>
@@ -225,18 +224,19 @@
 			canvas{position:fixed;left:0;top:0;z-index:-1;max-width:100%;margin:auto;min-height:1000px;}
 
 			/* HEADER */			
-			header{background:var(--putih);position:fixed;max-width:1080px;width:100%;top:0;border-bottom:2px solid var(--hitam);height:auto;border-radius:0 0 20px 20px}
+			header{background:var(--putih);position:fixed;max-width:1080px;width:100%;top:0;border-bottom:2px solid var(--hitam);height:auto;border-radius:0 0 20px 20px;z-index:999}
 			.kiri{width:30%;float:left;background:var(--putih);color:var(--hitam);padding:0 20px}
 			.kiri h1{float:left;}
 			.logo{height:30px;width:auto;padding:10px 0;float:left}
 			.kanan{display:flex;justify-content:flex-end;background:var(--putih);color:var(--hitam);padding:0 20px}
 			.kanan h3{margin-left:20px}
+			.kanan h3 a:hover{color:rgba(25,55,255,1);}
 
 			/* SECTION*/
 			section{max-width:1080px;margin:auto;font-family: 'Handlee';}
 
 			/* SECTION PROFILE*/
-			#profil{background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)), url("https://blogger.googleusercontent.com/img/a/AVvXsEj0mSPYTer4lN0lVUndjIdmqDN80YfLlOQC8EjHV-rkopJnlrWbSNFm6J1leQusOZ7MMuJurrv-6O6jjPuO3ZIffnJRVqabP4mDPVfdI3x9xf3AJXnBi5oObGTKd_w_8cuW-Yvodx8RrJkCs78NwEokaAClxXa67pIZyYAT4cfnbplNW2Y3_GN6EadG"); padding:40px 0 160px 0;border-radius:0 0 15% 15%}
+			#profil{background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)), url("https://blogger.googleusercontent.com/img/a/AVvXsEg9tQD983EJNwJ-mKmC7J1RiMnwZ-ibYCGZ2YvUWWOh0ng-rmxmm8jgsNcTUlNhASzeH0hOaZkHOXBaaHJevtYEDOyaXbBBkJuX3qE4BIOXxgXyOCHEAF7jyTCHMN4pqbMAHxyGbVsVoMRoVmN1CMXe8hxukoHi4PPskyedYo76Wz2gJ-N2mUPfKTMXBg=w1280-h720"); padding:40px 0;border-radius:0 0 15% 15%;opacity:.8}
  			#profil h2{color:var(--putih);padding:10px 20px;}
 			.profil{color:var(--putih);padding:10px 20px;}
 			.profil h1{font-size:200%;text-align:center;}
@@ -244,7 +244,21 @@
 
             .sosmed{display:flex;width:100%;justify-content:center}
             .icon{width:40px;height:auto;padding: 5px;box-shadow: 0 0 5px 3px rgba(10,10,10,.65);border-radius: 25%;background-color:rgba(10,10,10,.25);margin: 5px;}
-            .icon:hover{box-shadow: 0 0 5px 3px rgba(255,255,255,.65);border-radius: 25%;background-color:rgba(255,255,255,.25);}
+            .blogger .icon:hover{box-shadow: 0 0 5px 3px rgba(255, 166, 51,.65);border-radius: 25%;background-color:rgba(255, 166, 51,.25);}
+            .facebook .icon:hover{box-shadow: 0 0 5px 3px rgba(59, 89, 152,.65);border-radius: 25%;background-color:rgba(59, 89, 152,.25);}
+            .twitter .icon:hover{box-shadow: 0 0 5px 3px rgba(29, 161, 242,.65);border-radius: 25%;background-color:rgba(29, 161, 242,.25);}
+            .instagram .icon:hover{box-shadow: 0 0 5px 3px rgba(195, 42, 163,.65);border-radius: 25%;background-color:rgba(195, 42, 163,.25);}
+            .linkedin .icon:hover{box-shadow: 0 0 5px 3px rgba(10, 102, 194,.65);border-radius: 25%;background-color:rgba(10, 102, 194,.25);}
+
+			.resume{display:flex;justify-content:center}
+			.resume h3{font-size:150%;text-align:center;padding:10px 20px;background-color:rgba(255,255,255,.8);color:rgba(0,0,0,1);border-radius:10px}
+			.resume h3:hover{color:rgba(255,255,255,1);background-color:rgba(25,55,255,.8);}
+
+			.bagiduaatas{display:flex;}
+			.fotoprofil img{max-width:100px;height:auto}
+			.bagidua{display:flex;justify-content:space-between}
+			.tugas ul {padding-inline-start:20px !important}
+			.isianpopup h2, .instansi{font-weight:700}
 
 			/* SECTION PORTFOLIO */
 			#portfolio{padding:40px 0;}
@@ -255,9 +269,10 @@
             .griding{padding:10px;width:30%;position:relative}
 			.griding h3{ font-size:100%; font-weight:700;text-align:center}
             .gambarporto{opacity: 1;display: block;width: 100%;height: auto;transition: .5s ease;backface-visibility: hidden;border-radius:20px;}
-			.klikgambar{transition: .5s ease;opacity: 0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);text-align: center;}
+			.klikgambar{transition: .5s ease;opacity: 0;position: absolute;top: 40%;left: 50%;transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);text-align: center;}
 			.griding:hover .gambarporto{opacity:0.3}
 			.griding:hover .klikgambar{opacity:1}
+			.tulisangambar {font-weight:700;padding:10px 20px;border-radius:5px;background:rgba(0,0,0,.65);color:rgba(255,255,255,1)}
 
 			/* SECTION CERTIFICATE */
 			#sertifikat{padding:40px 0;}
@@ -269,6 +284,7 @@
 			.icon-sertif h3{font-size:150%;text-align:center}
 			.lihatsertif{display:flex;justify-content:center}
 			.lihatsertif h3{display:flex;padding: 10px 20px; font-size:100%; background:var(--hitam);color:var(--putih);justify-content:center;border-radius:20px}
+			.lihatsertif h3:hover{color:rgba(255,255,255,1);background-color:rgba(25,55,255,.8);}
 
 			/* SECTION HOBBY */
 			#hobi{padding:40px 0;}
@@ -286,8 +302,8 @@
 			.kontakkiri, .kontakkanan{padding:20px}
 			.kontakkiri h3{font-size:125%;}
 			.kontakkiri h3 a{color:var(--putih);}
-			.sewa{padding: 20px;background: #000;color: #fff !important;border-radius: 20px;font-size:125%}
-
+			.sewa{padding: 20px;background: #fff;color: #000 !important;border-radius: 20px;font-size:125%}
+			.kontakkanan a:hover{background: rgba(25,55,255,1);color:#fff !important}
 			/* FOOTER*/
 			footer{display:none;}
 
@@ -297,7 +313,7 @@
 
             .popup {margin:30px auto;padding: 20px;background: #fff;border-radius: 5px;width: 90%;max-width:900px;position: relative;transition: all 5s ease-in-out;}
             .popupatas{display: flex;align-content: center;justify-content: space-between; padding: 20px 0;font-weight: bold;font-size: 20px;}
-            .popup .isianpopup {max-height: 30%;overflow: auto;}
+            .popup .isianpopup {overflow: auto;max-height:720px;height:480px;}
 
 			/* RESPONSIVE WEB DESIGN */
             @media screen and (max-width:1040px){
@@ -316,6 +332,7 @@
             .icon {width:35px}
 
             .icon-sertif img{height:70px}
+			.bagidua{flex-direction:column}
             }
 			@media screen and (max-width:640px){
             header{border-radius:0 0 100% 0}
@@ -325,8 +342,8 @@
 			.profil h1{font-size:125%;}
 			.profil h3{font-size:100%;}
 
+			.resume h3{font-size:100%;}
 			.icon{width:30px;height:auto;padding:4px;margin:4px}
-
 			.portfolio h1{font-size:125%;}
             .griding{padding:10px;width:45%}
 
@@ -354,6 +371,7 @@
 			.profil h3{font-size:90%;}
             .sosmed{flex-wrap:wrap}
 
+			.resume h3{font-size:90%;}
             .icon-sertif{padding:10px;width:40%}
             .icon-sertif img{height:50px}
 			.icon-sertif h3{font-size:90%;}
@@ -364,6 +382,7 @@
 			.kontakkiri h3{font-size:90%;}
 			.sewa{padding:10px;font-size:90%}
 
+
             .griding{width:100%}
 			}
 	
@@ -371,6 +390,8 @@
          	.icon{width:25px;padding:3px;margin:4px}
 
 			.lihatsertif h3{font-size:70%;padding:5px 10px}
+
+            .popup .isianpopup {max-height:480px;height:320px}
          	}
 
             @media screen and (max-width:240px){
@@ -383,6 +404,8 @@
 			.icon-hobi h3{font-size:80%;}
 			.kontakkiri h3{font-size:90%;}
 			.sewa{font-size:90%}
+
+            .popup .isianpopup {max-height:320px;height:240px}
     		}
             @media screen and (max-width:114px){
     		}
@@ -426,31 +449,40 @@
 			<div class='profil'>
 				<h1>M. MACHRUSH ALIY SIROJJAM MUSHLICH</h1>
 				<h3>
-				Hello, my name is Ojam, sometimes called Machrush. An Information Systems graduate, based in Gresik, Indonesia. I&#39;ve organizational experience which builds my skills in various fields. This blog I made to archive all artifacts of my portfolio, hope it can represent of me, especially my technical skill. Thank you for visiting.
+				Ojam&#39;s portfolio blog; project archives outside of college tasks.
 				</h3>
 			</div>
 			<div class='sosmed'>
 				<a class='linkedin klikin' href='https://linkedin.com/in/jampirojam' target='_blank'>
-					<img alt='icon' class='icon lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEha_GNMfPiqaxe2gMv5T7aIWnIrGFUUwBBxiw2j2hasHNR_oTWTeijeUrtebrKunXAWpqGKRZmK9LXrPa1xabR7cFVlz1acU2U2yte5pkH-j_RK3DnDfgYYepRo33rYG7p8GNylO5PaKstgBXq3F_OuMpms6fh1p1XgovSnOtktHMbDxiGifgxgegYj' src=''/>
+					<img alt='icon' class='icon lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEha_GNMfPiqaxe2gMv5T7aIWnIrGFUUwBBxiw2j2hasHNR_oTWTeijeUrtebrKunXAWpqGKRZmK9LXrPa1xabR7cFVlz1acU2U2yte5pkH-j_RK3DnDfgYYepRo33rYG7p8GNylO5PaKstgBXq3F_OuMpms6fh1p1XgovSnOtktHMbDxiGifgxgegYj' src='' title='M. Machrush Aliy Sirojjam Mushlich'/>
 				</a>
 				<a class='blogger klikin' href='https://brojamz.blogspot.com' target='_blank'>
-					<img alt='icon' class='icon lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEjaatzQUxXBBOM7AC9ZYwJrUYcGtQDY8XcQMwxDV2fqHmqmvUPcpfHdqgjJ9pFhd5Ck1jokl0kFujSZ_VC-CHXMNJqDiUp67TJJa18LaXFZluddNfKRtmPs72KwLPFGT2G9_yjiLxxsF4kDDCykNQ3_kNIHpbotT7G2yyqvkkyAQ4_SodGwHrq-9Nba' src=''/>
+					<img alt='icon' class='icon lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEjaatzQUxXBBOM7AC9ZYwJrUYcGtQDY8XcQMwxDV2fqHmqmvUPcpfHdqgjJ9pFhd5Ck1jokl0kFujSZ_VC-CHXMNJqDiUp67TJJa18LaXFZluddNfKRtmPs72KwLPFGT2G9_yjiLxxsF4kDDCykNQ3_kNIHpbotT7G2yyqvkkyAQ4_SodGwHrq-9Nba' src='' title='BROJAMZ'/>
 				</a>
 				<a class='instagram klikin' href='https://instagram.com/jampirojam' target='_blank'>
-					<img alt='icon' class='icon lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEgFeTxrX2WUbETeXKGfUqIGbZump21mrQrINw14rp2qkMql1t84ME42DL19GoLzFeKB3kGdcVbZXe8KrWE9F_d4tiEVS8oy2W55DLQOKcnuyFNmVzm0ss6CYRWIuLF4T352tE3JbJONrPTt5CsgDWSykpHc5DEHEuMMCG7-N31s6ZsbVY47JjStL2DM' src=''/>
+					<img alt='icon' class='icon lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEgFeTxrX2WUbETeXKGfUqIGbZump21mrQrINw14rp2qkMql1t84ME42DL19GoLzFeKB3kGdcVbZXe8KrWE9F_d4tiEVS8oy2W55DLQOKcnuyFNmVzm0ss6CYRWIuLF4T352tE3JbJONrPTt5CsgDWSykpHc5DEHEuMMCG7-N31s6ZsbVY47JjStL2DM' src='' title='@jampirojam'/>
 				</a>
-				<a class='twitter klikin' href='https://twitter.com/jampirojam' target='_blank'>
+				<a class='twitter klikin' href='https://twitter.com/jampirojam' target='_blank' title='@jampirojam'>
 					<img alt='icon' class='icon lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEj02FfvnBQWOgyh7YWaJpoW9XfAAsWUmiabTiywvA33wHv-b3f_XUx47PUpFbiosCzy0WAHRyjadH8DjLe6x8NzBLHLTxxRzU4oo_3zDqJRjlmSZJBaD-vt9drJAZqL-Yv9fbFcEnDIEkpBBMvGcK501NYizs6VfzeDHQCpQJ9BpiP23wJJQ0sp5Ezx' src=''/>
 				</a>
-				<a class='facebook klikin' href='https://facebook.com/jampirojam' target='_blank'>
+				<a class='facebook klikin' href='https://facebook.com/jampirojam' target='_blank' title='Machrush Aliy Sirojjam Mushlich'>
 					<img alt='icon' class='icon lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEiYuYMrkThDz2lnmovZCjBSdjhR-W0sY8f03z3WeFpuVi0NdRTi3Dzbnbh4NzIsPNRBOYmpr7C834zguGRmbUYxeXVbxJV2QDyF0k1ClrW9FSLLqvBBewBZsGLcDHkwxmDWb4iZDFAAzKiY-57FAa3fz91qsW3brz7HcK2gr3uvHOyBI3gNa2nQx3I7' src=''/>
 				</a>
 			</div>
+          <div class='resume klikin' onclick='location.href=&apos;#resume&apos;;'><h3>CURRICULUM VITAE</h3>
+          </div>
 		</section>
 		<section id='portfolio'>
 			<div class='portfolio'>
 				<h1>Archives</h1>
 				<div class='gridporto'>
+					<a class='griding klikin' href='https://drive.google.com/drive/folders/13ag2H9untQQa6L4zOQdNQiBuDsepOSfh' target='_blank'>
+						<img alt='gambarporto' class='gambarporto lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEjnN-0xRayATqPL_n0qD6P5rBwzP-n0nBQ8Yowl1tEoulsRH7N9hh0zd7uojdiz4c8k9ETfXDq1c7WvhfHuooPOyVWVCPFI4QcyQy1SbWZ8NLzmvvWjo4lvAtYdtc8FJlTnu-fQjLlICRyu7ulftFXMNCqrTin61nqkypf-3SxmiTTcb1d8xwi0rdCe4w=s320' src=''/>
+                      <div class='klikgambar'>
+                        <div class='tulisangambar'>VIEW</div>
+                      </div>
+                      <h3>Kerangka Kerja Pembuatan Surat Nikah (KKPSN) V5</h3>
+					</a>
 					<a class='griding klikin' href='https://v3.globalgamejam.org/2018/games/mumet-selalu' target='_blank'>
 						<img alt='gambarporto' class='gambarporto lazy' data-src='https://ggj.s3.amazonaws.com/styles/game_sidebar__wide/game/featured_image/screenshot_1_2.jpg' src=''/>
                       <div class='klikgambar'>
@@ -504,7 +536,8 @@
 						<h3>E-Sports</h3>
 					</div>
 					<div class='icon-hobi'>
-                      <img alt='writing' class='writing lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEjIRPZZ4EglyZPA0-T7eNbPzak2Nz6E8I0ruTNxZGNBNK5ygeUf0t9Xs7mIZRScIbADL81rnGS7IVO4M0Z1tL220yZ3txIncZhmRiqHPeojPAuBsjjQ_kiFhxHacQN_taRgEyMZShV7qXrtFyw9fa1ANR_RyCRk5MGOVywoGFwUxfQVQoylkiz-MUntSw=s320' src=''/>                      
+                      
+                      <img alt='writing' class='esport lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEjIRPZZ4EglyZPA0-T7eNbPzak2Nz6E8I0ruTNxZGNBNK5ygeUf0t9Xs7mIZRScIbADL81rnGS7IVO4M0Z1tL220yZ3txIncZhmRiqHPeojPAuBsjjQ_kiFhxHacQN_taRgEyMZShV7qXrtFyw9fa1ANR_RyCRk5MGOVywoGFwUxfQVQoylkiz-MUntSw=s320' src=''/>  
 						<h3>Writing</h3>
 					</div>
 				</div>
@@ -515,11 +548,11 @@
 			<div class='kontak'>
 				<div class='kontakkiri'>
               		<h3>
-						<a href='https://wa.me/628975500905'>
+						<a class='klikin' href='https://wa.me/628975500905'>
                           +62 897 5500 905</a>
                 </h3>
 					<h3>
-						<a href='mailto:jampirojam@gmail.com'>jampirojam@gmail.com</a>
+						<a class='klikin' href='mailto:jampirojam@gmail.com'>jampirojam@gmail.com</a>
                 </h3>
 					<h3>Jl. Raya Cangkir<br/>Driyorejo, Gresik, Indonesia. 61177.
                 </h3>
@@ -567,14 +600,169 @@
           </div>
           <hr/>
           <div class='isianpopup'>
-            OJAM is a personal blog that created for portfolio archives. This blog is built with Blogger, using front-end development engine (HTML, CSS, JavaScript, and JQuery) by my own style. Responsive Web Design (RWD) and Progressive Web App (PWA) supported; Search Engine Optimization (SEO) test scores reached 86% using Lighthouse; and performance test reached 97 point using PageSpeed Insight.
+            OJAM is a personal blog that created for portfolio archives.<br/><br/>
+            <b>Build:</b>
+            <ul>
+              <li>Blogger Platform</li>
+              <li>Web Front-End Development Engine (HTML5, CSS3, JavaScript, and JQuery)</li>
+            </ul>
+            <b>Support:</b>
+            <ul>
+              <li>Responsive Web Design (RWD)</li>
+              <li>Progressive Web App (PWA)</li>
+              <li>Search Engine Optimazation (SEO) - 86% (Lighthouse)</li>
+              <li>Web Performance - 97% (PageSpeed Insight)</li>
+            </ul>
             <br/>
             <hr/>
             <br/>
-            Thank you:<br/>
-            <a href='https://blogger.com'>- Blogger</a><br/>
-            <a href='https://flaticon.com'>- Flaticon</a><br/>
-            <a href='https://freepik.com'>- Freepik</a>
+            <b>Thank you:</b><br/>
+            <ul>
+              <li><a href='https://blogger.com'>Blogger</a></li>
+            <li><a href='https://flaticon.com'>Flaticon</a></li>
+            <li><a href='https://freepik.com'>Freepik</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class='melayang' id='resume'>
+        <div class='popup'>
+          <div class='popupatas'>
+          <a> Curriculum Vitae </a>
+          <a class='tutup klikin' href='#'>X</a>
+          </div>
+          <hr/>
+          <div class='isianpopup'>
+            <h2>M. MACHRUSH ALIY SIROJJAM MUSHLICH</h2>
+            <div class='bagiduaatas'>
+              <div class='fotoprofil'><img alt='esport' class='esport lazy' data-src='https://blogger.googleusercontent.com/img/a/AVvXsEh591E9PRpQOrX8rJjsUq33WL724ZvvZyH1C4U5BbJ-kA4uYkNiaA3WnkPNF_VO79Y8Hzd1aSnP3esjehc9cJJu7VP8b9RUB4hyDgeHJvY8K4Coot675AO0Bnmb3pMbkZEpcpnsB23XgaU_m0w1-I1H4zEdZFTZdsVitRo12t0akMeAaJyIbtzetIChfA=s320' src=''/>  </div>
+            <div class='isianprofil'>
+              <ul>
+                <li>May 4, 1996 (25 years old)
+                </li>
+                <li>Male
+                </li>
+                <li>Gresik, Indonesia
+                </li>
+                <li><a class='klikin' href='https://wa.me/628975500905'>
+                          +62 897 5500 905</a>
+                  </li>
+                <li><a class='klikin' href='mailto:jampirojam@gmail.com'>jampirojam@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+            </div>
+            <hr/>
+           <h2>SKILLS</h2>
+            <div class='bagidua'>
+              <div class='tugas'>
+              <ul>
+                <li>Microsoft Office (All Programs)
+                </li>
+                <li>PhotoShop, InDesign, CorelDraw
+                </li>
+                <li>After Effect, Premiere, Sony Vegas
+                </li>                
+                <li>HTML, CSS, JavaScript
+                </li>
+                <li>Java, PHP, C++
+                </li>
+                <li>MySQL, PostgreSQL
+                </li>
+              </ul>
+            </div>
+            </div>
+            <hr/> 
+            <h2>INTERESTS</h2>
+            <div class='bagidua'>
+              <div class='tugas'>
+              <ul>
+                <li>IT Governance, Risk, and Compliance
+                </li>
+                <li>IT Service Management
+                </li>
+                <li>IT Development and Quality Assurance
+                </li>                
+                <li>Business Process Management
+                </li>
+                <li>Supply Chain Management
+                </li>
+                <li>Digital Forensic
+                </li>
+              </ul>
+            </div>
+            </div>
+            <hr/>
+            <h2>EDUCATION</h2>
+            <div class='bagidua'>
+              <div class='instansi'>Universitas Islam Negeri Sunan Ampel</div><div class='tahun'>09/2015 - 08/2021</div></div>
+            <h3>Surabaya, Indonesia<br/>Information Systems<br/>GPA 3.30</h3>
+            
+            
+            <hr/>
+           <h2>EXPERIENCE</h2>
+            <div class='bagidua'>
+              <div class='instansi'>PT Radio Merdeka Lokatama</div><div class='tahun'>01/2020 - 02/2020</div></div>
+            <h3>Surabaya, Indonesia<br/>IT Support (Internship)</h3>
+            <div class='tugas'>
+              <ul>
+                <li>Design a centralized network for each radio station that&#8217;s part of the Suzanna Network
+                </li>
+                <li>Troubleshoot network, hardware, and software problems
+                </li>
+                <li>Make a broadcast script
+                </li>
+              </ul>
+            </div>
+            <hr/>
+            <h2>ORGANIZATION</h2>
+            <div class='bagidua'>
+              <div class='instansi'>Lembaga Pers Mahasiswa (LPM) Riset</div><div class='tahun'>09/2017 - 09/2018</div></div>
+            <h3>Surabaya, Indonesia<br/>Editor in Chief</h3>
+            <div class='tugas'>
+              <ul>
+                <li>Organize, supervise, and carry out every editorial activity
+                </li>
+                <li>Ensure editorial eligibility
+                </li>
+              </ul>
+            </div><br/><div class='bagidua'>
+              <div class='instansi'>Himpunan Mahasiswa Program Studi Sistem Informasi</div><div class='tahun'>06/2017 - 05/2018</div></div>
+            <h3>Surabaya, Indonesia<br/>Secretary</h3>
+            <div class='tugas'>
+              <ul>
+                <li>Assist the leader in organizing, supervising, and carrying out every planned activity
+                </li>
+                <li>Handling organizational administration
+                </li>
+                <li>Establish relationships with internal and external organizations
+                </li>
+              </ul>
+            </div><br/><div class='bagidua'>
+              <div class='instansi'>Pergerakan Mahasiswa Islam Indonesia (PMII)</div><div class='tahun'>12/2015 - 05/2018</div></div>
+            <h3>Surabaya, Indonesia<br/>Member</h3>
+            <div class='tugas'>
+              <ul>
+                <li>Organize, supervise, and carry out every planned activity
+                </li>
+                <li>Conduct studies related to current issues
+                </li>
+              </ul>
+            </div><br/><div class='bagidua'>
+              <div class='instansi'>Remaja Masjid Jami Darun Najah</div><div class='tahun'>12/2011 - 06/2019</div></div>
+            <h3>Gresik, Indonesia<br/>Secretary</h3>
+            <div class='tugas'>
+              <ul>
+                <li>Assist the leader in organizing, supervising, and carrying out every planned activity
+                </li>
+                <li>Handling organizational administration
+                </li>
+                <li>Establish relationships with internal and external organizations
+                </li>
+              </ul>
+            </div>
+            <hr/>
           </div>
         </div>
       </div>
